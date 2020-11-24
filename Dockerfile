@@ -7,7 +7,7 @@ FROM alpine:3.11
 MAINTAINER a-yasui
 
 ENV PKGNAME=graphicsmagick
-ENV PKGVER=1.3.34
+ENV PKGVER=1.3.35
 ENV PKGSOURCE=http://downloads.sourceforge.net/$PKGNAME/$PKGNAME/$PKGVER/GraphicsMagick-$PKGVER.tar.lz
 
 WORKDIR /workdir
