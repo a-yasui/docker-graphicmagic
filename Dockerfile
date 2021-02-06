@@ -2,12 +2,12 @@
 # https://opensource.org/licenses/MIT
 #
 
-FROM alpine:3.11
+FROM alpine:3.13
 
 MAINTAINER a-yasui
 
 ENV PKGNAME=graphicsmagick
-ENV PKGVER=1.3.35
+ENV PKGVER=1.3.36
 ENV PKGSOURCE=http://downloads.sourceforge.net/$PKGNAME/$PKGNAME/$PKGVER/GraphicsMagick-$PKGVER.tar.lz
 
 WORKDIR /workdir
