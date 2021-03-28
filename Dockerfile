@@ -2,7 +2,7 @@
 # https://opensource.org/licenses/MIT
 #
 
-FROM alpine:3.13
+FROM --platform=$BUILDPLATFORM alpine:3.13
 
 MAINTAINER a-yasui
 
