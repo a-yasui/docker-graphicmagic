@@ -2,13 +2,13 @@
 # https://opensource.org/licenses/MIT
 #
 
-FROM --platform=$BUILDPLATFORM alpine:3.13
+FROM --platform=$BUILDPLATFORM alpine:latest
 
 MAINTAINER a-yasui
 
 ENV PKGNAME=graphicsmagick
-ENV PKGVER=1.3.36
-ENV PKGSOURCE=http://downloads.sourceforge.net/$PKGNAME/$PKGNAME/$PKGVER/GraphicsMagick-$PKGVER.tar.lz
+ENV PKGVER=1.3.42
+ENV PKGSOURCE=http://downloads.sourceforge.net/$PKGNAME/$PKGNAME/$PKGVER/GraphicsMagick-$PKGVER.tar.xz
 
 WORKDIR /workdir
 
@@ -22,9 +22,10 @@ RUN cd / && \
                      libjpeg-turbo-dev \
                      libpng-dev \
                      libtool \
+                     xz \
                      libgomp && \
     wget $PKGSOURCE && \
-    lzip -d -c GraphicsMagick-$PKGVER.tar.lz | tar -xvf - && \
+    xz -dc GraphicsMagick-$PKGVER.tar.xz | tar xvf - && \
     cd GraphicsMagick-$PKGVER && \
     ./configure \
       --build=$CBUILD \
@@ -44,7 +45,7 @@ RUN cd / && \
     make install && \
     cd / && \
     rm -rf GraphicsMagick-$PKGVER && \
-    rm GraphicsMagick-$PKGVER.tar.lz && \
+    rm GraphicsMagick-$PKGVER.tar.xz && \
     apk del g++ \
             gcc \
             make \
